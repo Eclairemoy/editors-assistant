@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}DASHBOARD{% endblock %}
+
+{% block content %}
+
+	<h2>Here's What's Happening</h2>
+
+	<h3>Trending Topics</h3>
+	<div id="wrapper">
+		<div id="content">
+			<ul style="list-style-type:none">
+				{% for item in top50 %}
+				<li><a href={{ item['url'] }}> {{ item['name'] }} </a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+
+	<h3>Trending News</h3>
+
+	{% autoescape true %}
+	<div id="wrapper">
+		<div id="content">
+			<ul style="list-style-type:none">
+				{% for item in get_news_trends %}
+					<li><a href={{ item['link'] }}> {{ item['headline'] }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+<!-- 	{% endautoescape %} -->
+
+	<h3>Total Disney Blogs Traffic</h3><p>(as of {{ tstring }}, 2016)</p>
+	<div class="blog-chart">
+		<canvas id="lineChart"></canvas>
+		<div id="linelegend" class="chart-legend"></div>
+	</div>
+
+	<script>
+	  var options = {
+	  	responsive: true
+	  };
+
+	  // Make line chart out of blog data
+	  var ctx_line = $("#lineChart").get(0).getContext("2d");
+
+	  $.get("/blog-data.json", function (data) {
+	  	var myLineChart = new Chart(ctx_line).Line(data, options);
+	  	$("#lineLegend").html(myLineChart.generateLegend());
+	  });
+
+	</script>
+
+{% endblock %}
+
+

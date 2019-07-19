@@ -36,10 +36,10 @@ def show_newswhip_trends():
 
 def show_twitter_trends():
     """display the list of twitter trends."""
-    ACCESS_TOKEN = '34248106-6hy0zANJjBAd5hPf60f08Z600ZhjfKxpIYRBFumt8'
-    ACCESS_SECRET = 'ckZvNxWGu79ZWFgO0ZMoGgKhmnZff2FFgvKjXvkuR7hvg'
-    CONSUMER_KEY = 'bNiRMhKIV0VIoDCoa7iVd4dXY'
-    CONSUMER_SECRET = 'vHLRPyvKA9DVuY4wCBm3s9R7hPnHmY41Ey6PvCrG405ljUYwv3'
+    ACCESS_TOKEN = ''
+    ACCESS_SECRET = ''
+    CONSUMER_KEY = ''
+    CONSUMER_SECRET = ''
 
     oauth = OAuth(ACCESS_TOKEN, ACCESS_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
 
